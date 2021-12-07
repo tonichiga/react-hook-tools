@@ -1,1 +1,1 @@
-export { default as scalingHook } from "./hooks/scalingHook";
+export { default as useScale } from "./hooks/useScale";

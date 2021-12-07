@@ -60,7 +60,7 @@ const adaptiveData = {
   coeff,
 };
 
-const useAdaptive = (coefProps) => {
+const useScale = (coefProps) => {
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
   const [scale, setScale] = useState(1);
@@ -127,4 +127,4 @@ const useAdaptive = (coefProps) => {
   return elementStyle;
 };
 
-export default useAdaptive;
+export default useScale;
