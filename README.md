@@ -1,6 +1,6 @@
 # react-easy-hooks
 
-`useScale` возвращает объеrт с свойством `{transition: scale()}`;
+`useScale` возвращает объект с свойством `{transition: scale()}`;
 
 В `useScale()` можно передать коэфициент смещения скейла, где:
 value < 1 = scale уменьшается;
