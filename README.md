@@ -30,7 +30,7 @@ function App ( ) {
     const submitOnEnter = useSubmitOnEnter()
 
     const handleSubmit (object) => {
-        // ...ваша лошика
+        // ...ваша логика
     }
 
     return <textarea onKeyDown={(e) => submitOnEnter(e, handleSubmit, {name: "mango"})}/>
