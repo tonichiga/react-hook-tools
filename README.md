@@ -17,3 +17,22 @@ function App ( ) {
     return <div style={scale}></div>
 }
 ```
+
+`useSubmitOnEnter` вызывает фукнцию которую передаете вторым параметром в вызов функции-хука;
+Первым в выхов хука передаёте "event", вторым "функцию которую нужно вызвать", третьим "объект который нужно передать в вызванную функцию".
+
+Пример:
+
+```
+import {useSubmitOnEnter} from "react-easy-hooks"`
+
+function App ( ) {
+    const submitOnEnter = useSubmitOnEnter()
+
+    const handleSubmit (object) => {
+        // ...ваша лошика
+    }
+
+    return <textarea onKeyDown={(e) => submitOnEnter(e, handleSubmit, {name: "mango"})}/>
+}
+```

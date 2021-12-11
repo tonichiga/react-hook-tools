@@ -1,8 +1,8 @@
-const useSubmitOnEnter = (func) => {
-  const handleKeyDown = (e, item, id) => {
+const useSubmitOnEnter = () => {
+  const handleKeyDown = (e, func, object) => {
     if (e.keyCode == 13 && e.shiftKey == false) {
       e.preventDefault();
-      func();
+      func(object);
     }
   };
 
