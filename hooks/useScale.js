@@ -128,7 +128,7 @@ const useScale = (coeffProps, newCoeff) => {
     // eslint-disable-next-line
   }, [windowHeight, windowWidth]);
 
-  let initialCoef = coefProps ? coefProps : 1;
+  let initialCoef = coeffProps ? coeffProps : 1;
   let result =
     scale.toFixed(1) * initialCoef ? scale.toFixed(1) * initialCoef : 1;
 
