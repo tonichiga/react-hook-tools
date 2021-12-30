@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useZoom = (coefProps, newCoeff) => {
+const useZoom = (coeffProps, newCoeff) => {
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
   const [scale, setScale] = useState(1);
