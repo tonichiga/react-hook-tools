@@ -12,7 +12,7 @@ const useZoom = (coeffProps, newCoeff) => {
     ],
     height: [
       600, 768, 864, 720, 800, 960, 1024, 1050, 900, 1200, 1050, 1344, 1392,
-      1080, 1440, 1152, 1536, 2160,
+      1080, 1440, 1152, 1536, 2160, 1600,
     ],
   };
 
@@ -55,7 +55,7 @@ const useZoom = (coeffProps, newCoeff) => {
 
   const changeCoeffResolution = (coeff, newCoeff) => {
     if (!newCoeff) {
-      return coeff
+      return coeff;
     }
     return { ...coeff, ...newCoeff };
   };
