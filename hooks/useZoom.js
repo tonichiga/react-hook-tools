@@ -55,7 +55,7 @@ const useZoom = (coeffProps, newCoeff) => {
 
   const changeCoeffResolution = (coeff, newCoeff) => {
     if (!newCoeff) {
-      return;
+      return coeff
     }
     return { ...coeff, ...newCoeff };
   };
