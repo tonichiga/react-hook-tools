@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useScale = (coeffProps, newCoeff) => {
+const useScale = (coeffProps, newCoeff, showLog) => {
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
   const [scale, setScale] = useState(1);
@@ -16,7 +16,7 @@ const useScale = (coeffProps, newCoeff) => {
     ],
   };
 
-  const coeff = {
+  let coeff = {
     "800x600": 1.6,
     "1024x768": 1.6,
     "1024x720": 1.6,
@@ -89,11 +89,14 @@ const useScale = (coeffProps, newCoeff) => {
         : prev
     );
 
-    console.log({
-      currentWidth,
-      currentHeight,
-      coef: coeff[`${currentWidth}x${currentHeight}`],
-    });
+    if (showLog) {
+      console.log({
+        currentWidth,
+        currentHeight,
+        coef: coeff[`${currentWidth}x${currentHeight}`],
+      });
+    }
+
     setScale((percentWidth / 100) * coeff[`${currentWidth}x${currentHeight}`]);
   }
 

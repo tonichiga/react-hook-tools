@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useZoom = (coeffProps, newCoeff) => {
+const useZoom = (coeffProps, newCoeff, showLog) => {
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
   const [scale, setScale] = useState(1);
@@ -89,11 +89,14 @@ const useZoom = (coeffProps, newCoeff) => {
         : prev
     );
 
-    console.log({
-      currentWidth,
-      currentHeight,
-      coef: coeff[`${currentWidth}x${currentHeight}`],
-    });
+    if (showLog) {
+      console.log({
+        currentWidth,
+        currentHeight,
+        coef: coeff[`${currentWidth}x${currentHeight}`],
+      });
+    }
+
     setScale((percentWidth / 100) * coeff[`${currentWidth}x${currentHeight}`]);
   }
 
