@@ -1,13 +1,13 @@
 import { useEffect } from "react";
-import { storage } from "./storage";
+import { storageBase } from "./storage";
 
 const useEvents = (isRegistered = false) => {
   useEffect(() => {
     alt.on("event", (event, ...data) => {
-      if (storage[event] !== undefined) {
+      if (storageBase[event] !== undefined) {
         isRegistered &&
-          console.log("EVENT IN STORAGE", JSON.stringify(storage[event]));
-        storage[event](...data);
+          console.log("EVENT IN STORAGE", JSON.stringify(storageBase[event]));
+        storageBase[event](...data);
       } else {
         isRegistered && console.log("EVENT NOT FOUND", event);
       }
