@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { storageBase } from "./storage";
 
-const useEvents = (isRegistered = {}) => {
+const useEvents = (
+  isRegistered = { entry: false, data: false, found: false, notFound: false }
+) => {
   useEffect(() => {
     alt.on("event", (event, ...data) => {
       isRegistered.entry && console.log("[F] Entry event", event);
