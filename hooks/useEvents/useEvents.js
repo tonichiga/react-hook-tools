@@ -7,7 +7,7 @@ const useEvents = (
   useEffect(() => {
     alt.on("event", (event, ...data) => {
       isRegistered.entry && console.log("[F] Entry event", event);
-      isRegistered.data && console.log("[F] Entry event", JSON.stringify(data));
+      isRegistered.data && console.log("[F] Entry data", JSON.stringify(data));
 
       if (storageBase[event] !== undefined) {
         isRegistered.found && console.log("[F] Event found! IN STORAGE", event);
