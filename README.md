@@ -1,4 +1,4 @@
-# react-easy-hooks
+# react-hook-tools
 
 `useScale` возвращает объект с свойством `{transition: scale()}`;
 
