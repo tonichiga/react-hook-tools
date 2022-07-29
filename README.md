@@ -36,7 +36,7 @@ function App ( ) {
 }
 ```
 
-`useSubmitOnEnter` вызывает фукнцию которую передаете вторым параметром в вызов функции-хука;
+`useSubmitOnEnter` вызывает onSubmit в вызов функции-хука;
 Первым в выхов хука передаёте "event", вторым "функцию которую нужно вызвать", третьим "объект который нужно передать в вызванную функцию".
 
 Пример:
@@ -53,4 +53,19 @@ function App ( ) {
 
     return <textarea onKeyDown={(e) => submitOnEnter(e, handleSubmit, {name: "mango"})}/>
 }
+```
+
+`useTimer` Таймер с форматом "00:00:00:00" (dd:hh:mm:ss);
+Принимает объект timestemp = { serverTime: Date.now(), endTime: Date.now() + 160000 };
+
+serverTime = Серверное время, как начальное время.
+endTime = Конечное время.
+
+Пример:
+
+```
+  const timer = useTimer(timeStamp);
+
+ // `${timer.days}d ${timer.hours}h remaining`}
+
 ```
