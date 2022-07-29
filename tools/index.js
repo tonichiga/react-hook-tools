@@ -6,12 +6,17 @@ const nameFormatter = (value) => {
 
   for (let i = 0; i < str.split("").length; i += 1) {
     result = re.test(str.split("")[i]);
-    if (!result) return;
+    if (!result) {
+      str = str.split("");
+      str.splice(i, 1);
+      str = str.join("");
+      return str;
+    }
   }
 
   if (!str) {
     str = "";
-    return;
+    return str;
   }
 
   str = str.toLowerCase();
