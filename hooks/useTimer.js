@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
 const useTimer = ({ targetTime }) => {
-  const offset = targetTime?.serverTime - Date.now();
-  const endTime = targetTime?.endTime - targetTime?.serverTime + offset;
+  const offset = targetTime.serverTime - Date.now();
+  const endTime = targetTime.endTime - targetTime.serverTime + offset;
 
   const endTimestamp = endTime + Date.now();
 
