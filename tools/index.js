@@ -24,4 +24,17 @@ const nameFormatter = (value) => {
   return str;
 };
 
-export { nameFormatter };
+const moneyFormatter = (money, isFormat1000 = false) => {
+  let equal = 10000;
+
+  if (isFormat1000) {
+    equal = 1000;
+  }
+
+  if (Number(money) > equal) {
+    money = parseInt(money).toLocaleString("en-US").replaceAll(",", " ");
+  }
+  return money;
+};
+
+export { nameFormatter, moneyFormatter };
