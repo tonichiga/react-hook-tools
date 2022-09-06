@@ -37,4 +37,17 @@ const moneyFormatter = (money, isFormat1000 = false) => {
   return money;
 };
 
-export { nameFormatter, moneyFormatter };
+const phoneFormatter = (number) => {
+  let arr = String(number).split("");
+  let stroke = "-";
+
+  arr.splice(3, 0, stroke);
+  arr.splice(7, 0, stroke);
+  arr.splice(10, 0, stroke);
+
+  const string = "+" + arr.join("");
+
+  return string;
+};
+
+export { nameFormatter, moneyFormatter, phoneFormatter };
