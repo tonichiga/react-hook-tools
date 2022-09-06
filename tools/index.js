@@ -31,7 +31,7 @@ const moneyFormatter = (money, isFormat1000 = false) => {
     equal = 1000;
   }
 
-  if (Number(money) > equal) {
+  if (Number(money) >= equal) {
     money = parseInt(money).toLocaleString("en-US").replaceAll(",", " ");
   }
   return money;
