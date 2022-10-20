@@ -12,11 +12,11 @@ const useClickOutside = (ref = [], callback, event = "mousedown") => {
               !current[0].contains(event.target) &&
               !current[1].contains(event.target)
             ) {
-              closeModals();
+              callback();
             }
           } else {
             if (current && !current.contains(event.target)) {
-              closeModals();
+              callback();
             }
           }
         });
