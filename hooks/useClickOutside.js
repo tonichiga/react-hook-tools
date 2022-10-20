@@ -5,18 +5,18 @@ const useClickOutside = (ref = [], callback, event = "mousedown", logger) => {
     logger && console.log({ ref, callback, event });
     function handleClickOutside(event) {
       if (Array.isArray(ref)) {
-        ref.forEach(({ current }) => {
-          if (Array.isArray(current)) {
+        ref.forEach((childRef) => {
+          if (Array.isArray(childRef)) {
             if (
-              current[0] &&
-              current[1] &&
-              !current[0].contains(event.target) &&
-              !current[1].contains(event.target)
+              childRef[0].current &&
+              childRef[1].current &&
+              !childRef[0].current.contains(event.target) &&
+              !childRef[1].current.contains(event.target)
             ) {
               callback();
             }
           } else {
-            if (current && !current.contains(event.target)) {
+            if (childRef.current && !childRef.current.contains(event.target)) {
               callback();
             }
           }
