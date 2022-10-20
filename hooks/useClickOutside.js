@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 
-const useClickOutside = (ref = [], callback, event = "mousedown") => {
+const useClickOutside = (ref = [], callback, event = "mousedown", logger) => {
   useEffect(() => {
+    logger && console.log({ ref, callback, event });
     function handleClickOutside(event) {
       if (Array.isArray(ref)) {
         ref.forEach(({ current }) => {
