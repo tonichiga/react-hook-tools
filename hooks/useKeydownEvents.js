@@ -6,10 +6,29 @@ const useKeydownEvents = (cb, actions = ["enter"], eventName = "keydown") => {
     enter: 13,
   };
 
+  function comparsion(e, key) {
+    if (e.keyCode === keyCode[key] && e.shiftKey == false) {
+      return true;
+    }
+
+    return false;
+  }
+
   useEffect(() => {
     function handleKeydown(e) {
-      actions.forEach((key) => {
-        if (e.keyCode === keyCode[key] && e.shiftKey == false) {
+      if (Array.isArray(cb)) {
+        console.log(cb);
+
+        cb.forEach(({ handler, event }) => {
+          if (comparsion(e, event)) {
+            handler();
+          }
+        });
+        return;
+      }
+
+      actions.forEach((event) => {
+        if (comparsion(e, event)) {
           cb();
         }
       });

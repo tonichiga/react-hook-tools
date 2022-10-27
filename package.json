@@ -1,6 +1,6 @@
 {
   "name": "react-easy-hooks",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "easy hooks and tools",
   "main": "index.js",
   "scripts": {
