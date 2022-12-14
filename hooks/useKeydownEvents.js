@@ -17,8 +17,6 @@ const useKeydownEvents = (cb, actions = ["enter"], eventName = "keydown") => {
   useEffect(() => {
     function handleKeydown(e) {
       if (Array.isArray(cb)) {
-        console.log(cb);
-
         cb.forEach(({ handler, event }) => {
           if (comparsion(e, event)) {
             handler();
@@ -45,3 +43,22 @@ const useKeydownEvents = (cb, actions = ["enter"], eventName = "keydown") => {
 };
 
 export default useKeydownEvents;
+
+/*  Example
+  useKeydownEvents([
+    {
+      handler: handleAddPortfolio,
+      event: "enter",
+    },
+    {
+      handler: () => {
+        navigate(-1, { replace: true });
+      },
+      event: "esc",
+    },
+  ]);
+
+  or
+   useKeydownEvents(handleAddPortfolio); // enter event default
+
+*/
