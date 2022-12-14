@@ -16,7 +16,12 @@ const useClickOutside = (ref = [], callback, event = "mousedown", logger) => {
               callback();
             }
           } else {
-            if (childRef.current && !childRef.current.contains(event.target)) {
+            if (
+              ref[0].current &&
+              ref[1].current &&
+              !ref[0].current.contains(event.target) &&
+              !ref[1].current.contains(event.target)
+            ) {
               callback();
             }
           }
@@ -32,7 +37,7 @@ const useClickOutside = (ref = [], callback, event = "mousedown", logger) => {
     return () => {
       document.removeEventListener(event, handleClickOutside);
     };
-  }, [ref]);
+  }, [ref, callback, event, logger]);
 
   return;
 };

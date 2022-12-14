@@ -37,17 +37,52 @@ const moneyFormatter = (money, isFormat1000 = false) => {
   return money;
 };
 
-const phoneFormatter = (number) => {
+const phoneFormatter = (number, preset = [3, 7, 10]) => {
   let arr = String(number).split("");
   let stroke = "-";
 
-  arr.splice(3, 0, stroke);
-  arr.splice(7, 0, stroke);
-  arr.splice(10, 0, stroke);
+  arr.splice(preset[0], 0, stroke);
+  arr.splice(preset[1], 0, stroke);
+  arr.splice(preset[2], 0, stroke);
 
   const string = "+" + arr.join("");
 
   return string;
 };
 
-export { nameFormatter, moneyFormatter, phoneFormatter };
+const deppClone = (obj) => {
+  // Se não for array ou objeto, retorna null
+  if (typeof obj !== "object" || obj === null) {
+    return obj;
+  }
+
+  let cloned, i;
+
+  // Handle: Date
+  if (obj instanceof Date) {
+    cloned = new Date(obj.getTime());
+    return cloned;
+  }
+
+  // Handle: array
+  if (obj instanceof Array) {
+    let l;
+    cloned = [];
+    for (i = 0, l = obj.length; i < l; i++) {
+      cloned[i] = ObjectUtils.deppClone(obj[i]);
+    }
+
+    return cloned;
+  }
+
+  // Handle: object
+  cloned = {};
+  for (i in obj)
+    if (obj.hasOwnProperty(i)) {
+      cloned[i] = ObjectUtils.deppClone(obj[i]);
+    }
+
+  return cloned;
+};
+
+export { nameFormatter, moneyFormatter, phoneFormatter, deppClone };
