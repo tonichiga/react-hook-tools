@@ -1,6 +1,6 @@
 {
   "name": "react-easy-hooks",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "easy hooks and tools",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/tonichiga/react-easy-hooks/issues"
   },
-  "homepage": "https://github.com/tonichiga/react-easy-hooks#readme"
+  "homepage": "https://github.com/tonichiga/react-easy-hooks#readme",
+  "dependencies": {
+    "react-uuid": "^2.0.0"
+  }
 }
